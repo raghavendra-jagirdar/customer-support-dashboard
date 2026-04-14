@@ -1,93 +1,60 @@
-\# Customer Support Dashboard (Power BI)
+# 📊 Customer Support Dashboard (Power BI)
 
+## 📌 Project Overview
 
+This project analyzes customer support ticket data to evaluate operational efficiency, identify trends, and improve customer experience through data-driven insights.
 
-\## 📊 Project Overview
+## 🎯 Business Objectives
 
+* Analyze ticket volume trends over time
+* Identify inefficiencies in resolution time across priorities
+* Evaluate customer satisfaction across support channels
+* Provide actionable insights to improve support performance
 
+## 📁 Dataset
 
-This project analyzes customer support tickets using Power BI to identify trends, performance, and customer satisfaction.
+* 8469 customer support tickets
+* Includes ticket priority, channel, resolution time, and satisfaction ratings
 
-## 📊 Dashboard Features
-- KPI tracking (Total, Open, Closed, Pending)
-- Ticket distribution analysis
-- Priority-based workload analysis
-- Channel-wise performance tracking
-- Customer satisfaction insights
+## 📊 Key KPIs
 
-\## 🔧 Tools Used
+* Total Tickets
+* Open vs Closed Tickets
+* Ticket Volume Trend
+* Avg Resolution Time (Minutes)
+* Avg Customer Satisfaction
 
+## 📈 Key Insights
 
+* Ticket volume fluctuates over time without a consistent upward or downward trend
+* High priority tickets take the longest to resolve (~484 minutes), indicating inefficiency in handling urgent cases
+* Critical tickets are resolved faster than high priority, suggesting potential prioritization gaps
+* Customer satisfaction remains stable (~3.0), with Chat channel slightly outperforming others
 
-\* Power BI
+## 🧠 Skills Demonstrated
 
-\* MySQL
+* Data cleaning and transformation
+* Data modeling in Power BI
+* DAX for KPI calculations
+* Dashboard design and storytelling
+* Business insight generation
 
-\* SQL
+## 🖼️ Dashboard Preview
 
+### 🔹 Customer Support Overview
 
+![Overview](screenshots/overview.png)
 
-\## 📁 Dataset
+### 🔹 Trends & Analysis
 
+![Trends](screenshots/trends.png)
 
+## 🚀 Tools Used
 
-\* Customer support ticket dataset (8469 records)
+* Power BI
+* SQL
+* MySQL
 
-
-
-\## 📌 Key Metrics
-
-
-
-\* Total Tickets: 8469
-
-\* Open Tickets: 2819
-
-\* Closed Tickets: 2769
-
-\* Pending Tickets: 2881
-
-
-
-\## 📈 Key Insights
-
-
-
-\* Medium priority tickets have the highest volume
-
-\* Email is the most used support channel
-
-\* Chat has the highest customer satisfaction score
-
-
-
-\## 🖼️ Dashboard Preview
-
-
-
-![Dashboard](./Dashboard.png)
-
-
-
-\## 🚀 Learnings
-
-
-
-\* Data cleaning using SQL
-
-\* Data modeling in Power BI
-
-\* Building interactive dashboards
-
-\* Business insight generation
-
-
-
-\## 📌 Author
-
-
+## 📌 Author
 
 Raghavendra Jagirdar
-
-
-
