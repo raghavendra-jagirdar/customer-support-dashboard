@@ -60,7 +60,7 @@ This project analyzes customer support tickets using Power BI to identify trends
 
 
 
-!\[Dashboard](Dashboard.png)
+![Dashboard](./Dashboard.png)
 
 
 
