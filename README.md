@@ -8,7 +8,12 @@
 
 This project analyzes customer support tickets using Power BI to identify trends, performance, and customer satisfaction.
 
-
+## 📊 Dashboard Features
+- KPI tracking (Total, Open, Closed, Pending)
+- Ticket distribution analysis
+- Priority-based workload analysis
+- Channel-wise performance tracking
+- Customer satisfaction insights
 
 \## 🔧 Tools Used
 
