@@ -52,7 +52,6 @@ This project analyzes customer support ticket data to evaluate operational effic
 ## 🚀 Tools Used
 
 * Power BI
-* SQL
 * MySQL
 
 ## 📌 Author
