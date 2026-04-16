@@ -78,3 +78,15 @@ FROM customer_support_tickets
 GROUP BY month
 ORDER BY month;
 
+-- Avg resolution time by priority
+SELECT ticket_priority,
+       AVG(TIMESTAMPDIFF(HOUR, first_response_time, time_to_resolution)) AS avg_resolution_hours
+FROM customer_support_tickets
+GROUP BY ticket_priority
+ORDER BY avg_resolution_hours DESC;
+
+-- Tickets with no resolution (potential SLA breach)
+SELECT ticket_id, customer_name, ticket_priority, ticket_status, first_response_time
+FROM customer_support_tickets
+WHERE time_to_resolution IS NULL
+AND ticket_status != 'Closed';
