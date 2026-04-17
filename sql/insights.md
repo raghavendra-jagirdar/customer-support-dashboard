@@ -1,57 +1,47 @@
-# 📊 SQL-Based Insights
+# 📊 Customer Support Analysis – Key Insights
 
-## 🔍 Operational Performance
+## 📈 Key Insights
 
-* Only ~33% of tickets are resolved (2769 out of 8469), indicating a significant backlog in the support system
-* While ~67% of tickets receive a response, less than half of them are resolved, highlighting inefficiencies in follow-up and resolution processes
+### 1. Resolution Gap
 
----
-
-## ⚠️ Resolution Gap
-
-* There is a clear drop-off between response and resolution stages
-* Many tickets are responded to but remain unresolved, suggesting process or ownership gaps
+Only ~33% of tickets are resolved despite ~67% receiving responses, indicating a significant drop-off in the support lifecycle and a growing backlog of unresolved issues.
 
 ---
 
-## 📉 Customer Experience
+### 2. Priority Inefficiency
 
-* Average customer satisfaction is ~2.99, which is below optimal levels
-* Lower satisfaction is likely driven by delays in resolution and unresolved tickets
-
----
-
-## 📊 Ticket Distribution
-
-* Ticket volume is evenly distributed across all priority levels
-* This may indicate lack of proper prioritization or inconsistent classification of urgency
+High priority tickets take the longest to resolve (~484 minutes), while critical tickets are resolved faster. This suggests inefficiencies in prioritization and handling of urgent cases, increasing potential SLA risks.
 
 ---
 
-## 📞 Channel Performance
+### 3. Channel Performance
 
-* All support channels (Email, Phone, Social Media, Chat) are used almost equally
-* Chat shows slightly higher satisfaction, suggesting faster or more efficient support interactions
-
----
-
-## 🚨 High Priority Concern
-
-* Critical and high-priority tickets have relatively lower satisfaction scores
-* Indicates challenges in handling complex or urgent issues effectively
+The Chat channel shows slightly higher customer satisfaction (~3.1) compared to other channels (~3.0). While the difference is small, it indicates that chat-based support may offer a better customer experience and can be used as a benchmark.
 
 ---
 
-## 📈 Trend Analysis
+### 4. Customer Satisfaction
 
-* Ticket volume fluctuates over time without a consistent upward or downward trend
-* Suggests inconsistent demand patterns or lack of seasonality insights
+Overall customer satisfaction remains low (~2.99), likely driven by delayed resolutions and unresolved tickets, highlighting the need for improving support efficiency.
 
 ---
 
-## 🧠 Key Takeaways
+### 5. Ticket Volume Trend
 
-* Major backlog issue due to low resolution rate
-* Weak follow-up mechanisms between response and resolution stages
-* Opportunity to improve prioritization and escalation handling
-* Chat channel can be leveraged as a benchmark for improving other channels
+Ticket volume fluctuates over time without a clear upward or downward trend, indicating inconsistent support demand and potential challenges in resource planning.
+
+---
+
+## 🚀 Recommendations
+
+* Improve resolution processes to reduce backlog and increase ticket closure rates
+* Prioritize high priority tickets more effectively to minimize delays and SLA breaches
+* Analyze chat channel workflows and replicate best practices across other support channels
+* Implement SLA monitoring to track unresolved tickets and proactively reduce delays
+* Optimize resource allocation based on ticket volume trends to handle demand fluctuations
+
+---
+
+## 🔗 Supporting Queries
+
+Refer to SQL queries in `customer_support_analysis.sql` for detailed analysis and data validation.
