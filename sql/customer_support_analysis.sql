@@ -100,15 +100,22 @@ RANK() OVER (ORDER BY AVG(TIMESTAMPDIFF(HOUR, date_of_purchase, time_to_resoluti
 FROM customer_support_tickets
 GROUP BY ticket_channel;
 
--- Priority Analysis using CTE
+-- Priority Performance Analysis using CTE
 WITH priority_analysis AS (
     SELECT 
         ticket_priority,
+        COUNT(*) AS total_tickets,
+        SUM(CASE WHEN ticket_status = 'Closed' THEN 1 ELSE 0 END) AS resolved_tickets,
         AVG(TIMESTAMPDIFF(HOUR, date_of_purchase, time_to_resolution)) AS avg_resolution_hours
     FROM customer_support_tickets
     GROUP BY ticket_priority
 )
-SELECT * 
+SELECT 
+    ticket_priority,
+    total_tickets,
+    resolved_tickets,
+    resolved_tickets * 100.0 / total_tickets AS resolution_rate,
+    avg_resolution_hours
 FROM priority_analysis
 ORDER BY avg_resolution_hours DESC;
 
