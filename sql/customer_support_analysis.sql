@@ -123,16 +123,8 @@ ORDER BY avg_resolution_hours DESC;
 SELECT 
 ticket_id,
 ticket_priority,
-TIMESTAMPDIFF(HOUR, date_of_purchase, NOW()) AS pending_hours
+TIMESTAMPDIFF(HOUR, first_response_time, NOW()) AS pending_hours
 FROM customer_support_tickets
 WHERE time_to_resolution IS NULL
-AND TIMESTAMPDIFF(HOUR, date_of_purchase, NOW()) > 48;
-
--- Resolution Rate by Priority (BUSINESS INSIGHT)
-SELECT 
-ticket_priority,
-COUNT(*) AS total_tickets,
-SUM(CASE WHEN ticket_status = 'Closed' THEN 1 ELSE 0 END) AS resolved_tickets,
-SUM(CASE WHEN ticket_status = 'Closed' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS resolution_rate
-FROM customer_support_tickets
-GROUP BY ticket_priority;
+AND first_response_time IS NOT NULL
+AND TIMESTAMPDIFF(HOUR, first_response_time, NOW()) > 48;
