@@ -40,8 +40,9 @@ SELECT COUNT(*) AS resolved_tickets
 FROM customer_support_tickets
 WHERE ticket_status = 'Closed';
 
--- Resolution Rate
-SELECT COUNT(CASE WHEN ticket_status = 'Closed' THEN 1 END) * 100.0 / COUNT(*) AS resolution_rate
+-- Resolution Rate (FIXED)
+SELECT 
+SUM(CASE WHEN ticket_status = 'Closed' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS resolution_rate
 FROM customer_support_tickets;
 
 -- Avg Customer Satisfaction
@@ -71,22 +72,60 @@ FROM customer_support_tickets
 GROUP BY ticket_channel
 ORDER BY avg_rating DESC;
 
--- Monthly Trend
-SELECT DATE_FORMAT(date_of_purchase, '%Y-%m') AS month,
+-- Monthly Trend (FIXED)
+SELECT 
+DATE_FORMAT(date_of_purchase, '%Y-%m') AS month,
 COUNT(*) AS total_tickets
 FROM customer_support_tickets
-GROUP BY month
+GROUP BY DATE_FORMAT(date_of_purchase, '%Y-%m')
 ORDER BY month;
 
--- Avg resolution time by priority
-SELECT ticket_priority,
-       AVG(TIMESTAMPDIFF(HOUR, first_response_time, time_to_resolution)) AS avg_resolution_hours
+-- Avg Resolution Time by Priority (FIXED)
+SELECT 
+ticket_priority,
+AVG(TIMESTAMPDIFF(HOUR, date_of_purchase, time_to_resolution)) AS avg_resolution_hours
 FROM customer_support_tickets
 GROUP BY ticket_priority
 ORDER BY avg_resolution_hours DESC;
 
--- Tickets with no resolution (potential SLA breach)
-SELECT ticket_id, customer_name, ticket_priority, ticket_status, first_response_time
+-- =========================
+-- ADVANCED ANALYSIS
+-- =========================
+
+-- Channel Ranking by Resolution Time (WINDOW FUNCTION)
+SELECT 
+ticket_channel,
+AVG(TIMESTAMPDIFF(HOUR, date_of_purchase, time_to_resolution)) AS avg_resolution_hours,
+RANK() OVER (ORDER BY AVG(TIMESTAMPDIFF(HOUR, date_of_purchase, time_to_resolution)) DESC) AS rank_by_resolution_time
+FROM customer_support_tickets
+GROUP BY ticket_channel;
+
+-- Priority Analysis using CTE
+WITH priority_analysis AS (
+    SELECT 
+        ticket_priority,
+        AVG(TIMESTAMPDIFF(HOUR, date_of_purchase, time_to_resolution)) AS avg_resolution_hours
+    FROM customer_support_tickets
+    GROUP BY ticket_priority
+)
+SELECT * 
+FROM priority_analysis
+ORDER BY avg_resolution_hours DESC;
+
+-- Tickets with SLA Breach (UPDATED)
+SELECT 
+ticket_id,
+ticket_priority,
+TIMESTAMPDIFF(HOUR, date_of_purchase, NOW()) AS pending_hours
 FROM customer_support_tickets
 WHERE time_to_resolution IS NULL
-AND ticket_status != 'Closed';
+AND TIMESTAMPDIFF(HOUR, date_of_purchase, NOW()) > 48;
+
+-- Resolution Rate by Priority (BUSINESS INSIGHT)
+SELECT 
+ticket_priority,
+COUNT(*) AS total_tickets,
+SUM(CASE WHEN ticket_status = 'Closed' THEN 1 ELSE 0 END) AS resolved_tickets,
+SUM(CASE WHEN ticket_status = 'Closed' THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS resolution_rate
+FROM customer_support_tickets
+GROUP BY ticket_priority;
