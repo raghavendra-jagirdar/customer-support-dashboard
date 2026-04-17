@@ -1,4 +1,5 @@
-# 📊 Customer Support Dashboard (Power BI)
+# 📊 Customer Support Performance Analysis (SQL + Power BI)
+End-to-end analysis of customer support operations to identify inefficiencies and improve resolution performance.
 
 ## 📌 Project Overview
 
@@ -45,13 +46,6 @@ This project analyzes support operations to identify inefficiencies, improve res
 * Avg Resolution Time (Minutes)
 * Avg Customer Satisfaction
 
-## 📈 Key Insights
-
-* Ticket volume fluctuates over time without a consistent upward or downward trend
-* High priority tickets take the longest to resolve (~484 minutes), indicating inefficiency in handling urgent cases
-* Critical tickets are resolved faster than high priority, suggesting potential prioritization gaps
-* Customer satisfaction remains stable (~3.0), with Chat channel slightly outperforming others
-
 ## 🧠 Skills Demonstrated
 
 * Data cleaning and transformation
@@ -72,9 +66,10 @@ This project analyzes support operations to identify inefficiencies, improve res
 
 
 ## 🚀 Tools Used
-
-* Power BI
-* MySQL
+- Power BI  
+- MySQL  
+- SQL  
+* 🔗 SQL Queries: [View SQL Analysis](sql/customer_support_analysis.sql)
 
 ## 📂 Project Structure
 
