@@ -62,13 +62,14 @@ This project analyzes support operations to identify inefficiencies, improve res
 
 ## 🖼️ Dashboard Preview
 
-### 🔹 Customer Support Overview
+### 🔹 Customer Support Performance Overview
 
 ![Overview](screenshots/overview.png)
 
 ### 🔹 Trends & Analysis
 
 ![Trends](screenshots/trends.png)
+
 
 ## 🚀 Tools Used
 
